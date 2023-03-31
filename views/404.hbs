@@ -1,0 +1,89 @@
+<body>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f7f7;
+}
+
+.not-found-page {
+  height: 100vh;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.not-found-err-img {
+  width: 400px;
+}
+
+.error-content-box {
+  margin-top: 30px;
+}
+
+.not-found-heading-1 {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #f70303;
+}
+
+.not-found-heading-2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.not-found-para {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #555;
+}
+
+.not-found-btn {
+  font-size: 1.2rem;
+  padding: 15px;
+  width: 200px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f70303;
+  color: #fff;
+  transition: background-color 0.5s ease;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.not-found-btn:hover {
+  background-color: #f70303;
+}
+
+.not-found-home-link {
+  text-decoration: none;
+}
+</style>
+<section class = "notFound">
+  <div class="img">
+    <div class="center">
+      <img src="https://www.howtogeek.com/wp-content/uploads/2021/08/How-To-Geek-404.jpg?height=200p&trim=2,2,2,2&crop=16:9" alt="Error image" class="not-found-err-img">
+      <div class="error-content-box">
+        <h1 class="not-found-heading-1">Oops! 404 Error</h1>
+        <h2 class="not-found-heading-2">Page not found</h2>
+        <p class="not-found-para">The page you are looking for might have been removed or is temporarily unavailable.</p>
+        <a href="/" class="not-found-home-link">
+          <button class="not-found-btn">Go back to home</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</body>
