@@ -5,9 +5,9 @@
 * 
 *  Name: ___Yuvraj Singh______ Student ID: _156150211__ Date: __14 April 2023_____
 *
-*  Cyclic Web App URL: 
+*  Cyclic Web App URL: https://dark-rose-shark-sari.cyclic.app
 *
-*  GitHub Repository URL: 
+*  GitHub Repository URL: https://github.com/ysingh2103/Assignment_5.git
 *
 ********************************************************************************/ 
 
