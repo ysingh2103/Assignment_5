@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-const { gte } = Sequelize.Op;
 
 
 var sequelize = new Sequelize('fpnqgxsm', 'fpnqgxsm', '4JAL6xnmw8JPM8AwgMtJpzVd2wSn9dZ5', {
@@ -12,6 +11,7 @@ var sequelize = new Sequelize('fpnqgxsm', 'fpnqgxsm', '4JAL6xnmw8JPM8AwgMtJpzVd2
   query: { raw: true }
 });
 
+
 var Post = sequelize.define('Post',{
   body: Sequelize.TEXT,
   title: Sequelize.STRING,
@@ -22,6 +22,7 @@ var Post = sequelize.define('Post',{
 var Category = sequelize.define('Category',{
   category: Sequelize.STRING,
 })
+
 
 Post.belongsTo(Category, {foreignKey: 'category'});
 
@@ -165,64 +166,58 @@ module.exports.getPublishedPostsByCategory = function () {
 }
 
 
-module.exports.getCategories = function () {
-  return new Promise((resolve, reject) => {
-      Category.findAll()
-          .then((data) => {
-              resolve(data);
-          })
-          .catch(() => {
-              reject("No results returned");
-          });
-  });
-}
+// module.exports.getCategories = function () {
+//     return new Promise((resolve, reject) => {
+//         Category.findAll().then(data=>{
+//             resolve(data);
+//         }).catch( err =>{
+//             reject("no results returned")
+//         });
+//     });
+// }
 
 module.exports.addCategory = function (categoryData) {
-  return new Promise((resolve, reject) => {
-      for (let i in categoryData) {
-          if (categoryData[i] === "") {
-              categoryData[i] = null;
-          }
-      }
+    return new Promise((resolve, reject) => {
 
-      Category.create(categoryData)
-          .then((category) => {
-              resolve(category);
-          })
-          .catch(() => {
-              reject("unable to create category");
-          });
-  });
+        for (var prop in categoryData) {
+            if (categoryData[prop] === '')
+            categoryData[prop] = null;
+        }
+
+        Category.create(categoryData).then(() => {
+            resolve();
+        }).catch((e) => {
+            reject("unable to create category");
+        });
+
+    });
 }
 
 module.exports.deleteCategoryById = function (id) {
-  return new Promise((resolve, reject) => {
-      Category.destroy({
-          where: {
-              id: id,
-          },
-      })
-          .then(() => {
-              resolve("Destroyed");
-          })
-          .catch(() => {
-              reject("Unable to delete category");
-          });
-  });
+    return new Promise((resolve, reject) => {
+        Category.destroy({
+            where: {
+                id: id
+            }
+        }).then( data => {
+            resolve();
+        }).catch(() => {
+            reject("unable to delete category");
+        });
+    });
 }
 
+
 module.exports.deletePostById = function (id) {
-  return new Promise((resolve, reject) => {
-      Post.destroy({
-          where: {
-              id: id,
-          },
-      })
-          .then(() => {
-              resolve("Destroyed");
-          })
-          .catch(() => {
-              reject("Unable to delete post");
-          });
-  });
+    return new Promise((resolve, reject) => {
+        Post.destroy({
+            where: {
+                id: id
+            }
+        }).then( data => {
+            resolve();
+        }).catch(() => {
+            reject("unable to delete post");
+        });
+    });
 }
